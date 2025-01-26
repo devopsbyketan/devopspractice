@@ -1,89 +1,3 @@
-Shell Scripts
-
-#!/bin/bash
-
-########################
-#Author:Ketan Lalge
-#date : 11/1/2025
-#
-# This script Outputs node health
-#
-# version:v1
-#######################
-
-set -x   #debug mode
-set -e   #exit the script when there are error
-set -o   #pipefail
-
-df -h     #check disk size
-
-free -g   #check memory use
-
-nproc     #no of cpu used
-
-ps -ef    #displays all the running processes
-
-ps -ef | grep amazon | awk -F" " '{print $2}'  #only gives the process id's
-
-
------------------------------------
-
-
-#ifelse condition
-
-a=4
-b=10
-
-if [ $a > $b ]
-then
-echo "A is greater than B"
-else
-echo "B is greater than A"
-fi
-
---------------------------------------
-
-
-
-
-
-
-#Author = Ketan Lalge
-#Date = 25/01/2025
-#
-#version : v1
-#
-# This script will report the AWS resource usage
-###########################
-
-set -x
-
-aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
-#AWS s3
-#Aws EC2
-#AWS Lambda
-#AWS IAM Users
-
-# list s3 buckets
-echo "Print list of s3 buckets"
-aws s3 ls
-
-# list EC2 Instances
-echo"Print list of EC2 instances"
-aws ec2 describe-instances
-
-#List AWS lambda
-echo"List of AWS lambda"
-aws lambda list-functions
-
-# List IAM users
-echo"List of IAM users"
-aws iam list-users
-
----------------------------------------------------------------------------------
-
-
-
 
 #!/bin/bash
 
@@ -97,8 +11,8 @@ aws iam list-users
 
 #To list the user
 
-helper()
 
+helper()
 # GitHub API URL
 API_URL="https://api.github.com"
 
