@@ -1,0 +1,90 @@
+day 1
+what is devops?
+devops is a process of improving the application delivery by ensuring automation, quality , continuous monitoring , continuous testing.
+
+why devops?
+To improve the process of delivery
+
+Day 2
+software developement lifecycle(sdlc)
+design develope and test the software for high quality
+
+day3
+virtual machines
+
+what is virtual machine?
+insted of physical servers they are logical servers
+
+hypervisor- creates the vm, central part of vm
+
+day 4
+EC2 instance to create vm
+
+boto3 model supports aws
+
+how to create ec2 instance?
+give the name as you want
+choose server
+check instance type for free tier
+create a new key pair , give the name ,go with rsa , select pem file,and download file
+last launch instance 
+
+How to delete instance?
+select the instance 
+go to instance state
+stop the instance 
+then terminate the instance
+
+aws cli
+aws command line interface
+
+how to connect aws cli
+type aws configure
+type secret key
+write secret key id
+select region
+select op format 
+then enter
+
+day6 
+
+os- windows, linux ,mac os
+linux - free and open source softwawe, secure, don't need to install any antivirus software , faster than windows ,used most of the time in production
+kernel - heart of linux os , establish connection bet software and harware
+         responsible for - device management, memory management, process management and handling system related tasks
+
+ARCHITECTURE OF LINUX
+           
+           system software       user process       compilers
+
+                              system libraries
+
+                                 kernel
+                              
+                                  os
+
+
+shell commands
+pwd - present working directory
+
+echo - to write anything in the file
+sh - to print output
+./ = to execute any file
+
+How to connect ubuntu in mobaxterm?
+Go to session
+new session
+ssh
+remote host - enter public ip address
+specify username - ubuntu
+select advance ssh
+use private key and upload pem file
+
+
+chmod 777 ketan = grands permission to the user
+777= my self   my group    everyone
+formula 4= read
+        2=write
+        1=execute
+
+

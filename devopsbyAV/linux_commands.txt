@@ -1,0 +1,60 @@
+touch ketan - create a new files
+cd - change directory
+cd ketan/   - it will work on ketan folder
+ls - listing files
+pwd - present working directory
+ls -l = to check the details of directory
+ls -ltr   - to check the it is owner and details file or directory
+vi ketan - to write data inside the file
+press i to insert data
+press esc to end writing
+:wq! = saves the information
+cat  - to read the file display file content
+echo= just print the sentence
+mkdir = create directory
+rm  = deletes files
+rm -r = deletes directories
+rmdir= remove a directory
+free -g = check memory use
+nproc = no of cpu used 
+df -h = disk size
+head =  print op of first part
+tail -f=print down side part and waits if you have to add some part in it
+top = complete information about memory
+cd ..   = to come in previous directory
+cd ../.. = come back by 2 directory
+man = by using man prefix get details about the commands
+#!/ = shebang
+#!/bin/bash
+
+:wq! = saves the written information
+
+chmod 777 ketan = grands permission to the user
+777= my self   my group    everyone
+formula 4= read
+        2=write
+        1=execute
+
+set -x = to execute commands in debug mode
+ps -ef = to run all the processes which are running in background
+
+ps -ef | grep"amazon" = to find only the processes which we want and their ids
+ grep command use to find the name or processes which are running
+| = pipe command = send the op of first command to the 2nd command
+
+awk = filter out the information
+grep name ketan | awk -F" " '{print $4}'  = $4 is the column number where the name belongs
+set -e  =exit the script when there is error 
+set -o = pipe failure
+curl = retrives information from from url
+wget = download the log file 
+sudo ketan = by using sudo command we can go any user
+su = switch user
+sudo = substitute user do
+
+sudo find / -name pam = to search any specific file
+
+sudo su -  = go to root user
+find = search for files and directory
+kill = to kill the processes
+trap = you can trap any signal from machine

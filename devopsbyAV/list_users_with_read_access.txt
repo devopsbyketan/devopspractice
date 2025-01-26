@@ -1,0 +1,148 @@
+Shell Scripts
+
+#!/bin/bash
+
+########################
+#Author:Ketan Lalge
+#date : 11/1/2025
+#
+# This script Outputs node health
+#
+# version:v1
+#######################
+
+set -x   #debug mode
+set -e   #exit the script when there are error
+set -o   #pipefail
+
+df -h     #check disk size
+
+free -g   #check memory use
+
+nproc     #no of cpu used
+
+ps -ef    #displays all the running processes
+
+ps -ef | grep amazon | awk -F" " '{print $2}'  #only gives the process id's
+
+
+-----------------------------------
+
+
+#ifelse condition
+
+a=4
+b=10
+
+if [ $a > $b ]
+then
+echo "A is greater than B"
+else
+echo "B is greater than A"
+fi
+
+--------------------------------------
+
+
+
+
+
+
+#Author = Ketan Lalge
+#Date = 25/01/2025
+#
+#version : v1
+#
+# This script will report the AWS resource usage
+###########################
+
+set -x
+
+aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
+#AWS s3
+#Aws EC2
+#AWS Lambda
+#AWS IAM Users
+
+# list s3 buckets
+echo "Print list of s3 buckets"
+aws s3 ls
+
+# list EC2 Instances
+echo"Print list of EC2 instances"
+aws ec2 describe-instances
+
+#List AWS lambda
+echo"List of AWS lambda"
+aws lambda list-functions
+
+# List IAM users
+echo"List of IAM users"
+aws iam list-users
+
+---------------------------------------------------------------------------------
+
+
+
+
+#!/bin/bash
+
+
+##################
+#Author - Ketan
+#
+#Date - 26-1-2025
+#
+##################
+
+#To list the user
+
+helper()
+
+# GitHub API URL
+API_URL="https://api.github.com"
+
+# GitHub username and personal access token
+USERNAME=$username
+TOKEN=$token
+
+# User and Repository information
+REPO_OWNER=$1
+REPO_NAME=$2
+
+# Function to make a GET request to the GitHub API
+function github_api_get {
+    local endpoint="$1"
+    local url="${API_URL}/${endpoint}"
+
+    # Send a GET request to the GitHub API with authentication
+    curl -s -u "${USERNAME}:${TOKEN}" "$url"
+}
+
+# Function to list users with read access to the repository
+function list_users_with_read_access {
+    local endpoint="repos/${REPO_OWNER}/${REPO_NAME}/collaborators"
+
+    # Fetch the list of collaborators on the repository
+    collaborators="$(github_api_get "$endpoint" | jq -r '.[] | select(.permissions.pull == true) | .login')"
+
+    # Display the list of collaborators with read access
+    if [[ -z "$collaborators" ]]; then
+        echo "No users with read access found for ${REPO_OWNER}/${REPO_NAME}."
+    else
+        echo "Users with read access to ${REPO_OWNER}/${REPO_NAME}:"
+        echo "$collaborators"
+    fi
+}
+
+function helper{
+expectedd_cmd_args=2
+if [$# -ne $expected_cmd_args]; then
+echo "Please execute the script with required cmd args"
+echo "asd"
+} 
+
+# Main script
+
+echo "Listing users with read access to ${REPO_OWNER}/${REPO_NAME}..."
+list_users_with_read_access
