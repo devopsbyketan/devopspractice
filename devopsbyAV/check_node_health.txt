@@ -1,0 +1,26 @@
+
+
+#!/bin/bash
+
+########################
+#Author:Ketan Lalge
+#date : 11/1/2025
+#
+# This script Outputs node health
+#
+# version:v1
+#######################
+
+set -x   #debug mode
+set -e   #exit the script when there are error
+set -o   #pipefail
+
+df -h     #check disk size
+
+free -g   #check memory use
+
+nproc     #no of cpu used
+
+ps -ef    #displays all the running processes
+
+ps -ef | grep amazon | awk -F" " '{print $2}'  #only gives the process id's
